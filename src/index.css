@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #007bff;
-  --primary-hover: #0056b3;
+  --primary-color: #f97316; /* Orange */
+  --primary-hover: #ea580c; /* Darker orange */
   --bg-color: #f8f9fa;
   --surface-color: #ffffff;
   --text-primary: #212529;
