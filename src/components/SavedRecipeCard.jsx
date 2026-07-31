@@ -1,31 +1,30 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSavedRecipes } from '../context/SavedRecipesContext';
 
-const SavedRecipeCard = ({ item, onRemove }) => {
+const SavedRecipeCard = ({ item }) => {
   const navigate = useNavigate();
+  const { removeRecipe } = useSavedRecipes();
 
   const handleRemove = (e) => {
     e.stopPropagation();
-    onRemove(item.id);
+    removeRecipe(item.id);
   };
 
   return (
-    <div className="food-card saved-card" onClick={() => navigate(`/menu/${item.id}`)}>
+    <div className="food-card" onClick={() => navigate(`/menu/${item.id}`)}>
       <div className="card-image-container">
         <img src={item.image} alt={item.name} className="card-image" />
         <div className={`diet-badge ${item.isVeg ? 'veg' : 'non-veg'}`}>
-          <span className="dot"></span>
-          {item.isVeg ? 'Vegetarian' : 'Non-Vegetarian'}
+          {item.isVeg ? 'Veg' : 'Non-Veg'}
         </div>
       </div>
       <div className="card-content">
-        <div className="card-header">
-          <span className="category-label">{item.category}</span>
-        </div>
-        <h3 className="dish-name">{item.name}</h3>
-        <p className="dish-description">{item.description}</p>
-        <div className="saved-card-footer">
-          <p className="servings">Serves / {item.servings}</p>
+        <span className="category-label">{item.category}</span>
+        <h3 className="card-title">{item.name}</h3>
+        <p className="card-desc">{item.description}</p>
+        <div className="card-footer">
+          <span className="servings">{item.servings}</span>
           <button className="remove-btn" onClick={handleRemove}>Remove</button>
         </div>
       </div>

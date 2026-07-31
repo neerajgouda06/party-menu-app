@@ -8,18 +8,18 @@ const FoodCard = ({ item }) => {
     <div className="food-card" onClick={() => navigate(`/menu/${item.id}`)}>
       <div className="card-image-container">
         <img src={item.image} alt={item.name} className="card-image" />
+        {/* Spec requirement: Diet badge top-right of image */}
         <div className={`diet-badge ${item.isVeg ? 'veg' : 'non-veg'}`}>
-          <span className="dot"></span>
-          {item.isVeg ? 'Vegetarian' : 'Non-Vegetarian'}
+          {item.isVeg ? 'Veg' : 'Non-Veg'}
         </div>
       </div>
       <div className="card-content">
-        <div className="card-header">
-          <span className="category-label">{item.category}</span>
+        <span className="category-label">{item.category}</span>
+        <h3 className="card-title">{item.name}</h3>
+        <p className="card-desc">{item.description}</p>
+        <div className="card-footer">
+          <span className="servings">{item.servings}</span>
         </div>
-        <h3 className="dish-name">{item.name}</h3>
-        <p className="dish-description">{item.description}</p>
-        <p className="servings">Serves / {item.servings}</p>
       </div>
     </div>
   );

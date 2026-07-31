@@ -52,7 +52,7 @@ const SignIn = () => {
         <div className="brand-header">
           <h1>Party Menu.</h1>
         </div>
-        <p className="subtitle">Sign in to explore the collection</p>
+        <p className="subtitle">Sign in to explore our delicious menu</p>
         
         {error && <div className="error-banner">{error}</div>}
         
@@ -80,7 +80,7 @@ const SignIn = () => {
             />
           </div>
           <button type="submit" className="primary-btn" disabled={loading} style={{ marginTop: '1rem', width: '100%' }}>
-            {loading ? 'Authenticating...' : 'Sign In'}
+            {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
       </div>
