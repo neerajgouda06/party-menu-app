@@ -1,67 +1,38 @@
 # Party Menu Application
 
-A modern, responsive food discovery web app built as a front-end assessment using **React 19, React Router DOM 7, and Vite 6**.
+A responsive, web-based food discovery app that allows users to browse, filter, and save dishes from a curated party menu.
 
 ## Features
+- **User Authentication**: Secure login flow using a mock remote API.
+- **Protected Routes**: Core application features are locked behind an authentication wall.
+- **Dynamic Filtering**: Instantly filter 50 unique dishes by category (Starter, Main, Sides, Desert) or dietary preference (Veg / Non-Veg).
+- **Search Functionality**: Case-insensitive text search.
+- **Saved Recipes**: Persist your favorite recipes across sessions using browser local storage.
+- **Modern UI**: High-end editorial design featuring a responsive CSS grid, glassmorphic elements, and micro-animations.
 
-- **Authentication:** Mock login via a serverless API endpoint.
-- **Menu Browsing:** Browse a catalog of 50 handcrafted dish entries spanning Starters, Mains, Sides, and Desserts.
-- **Dynamic Filtering:** Instantly filter dishes by Category, Diet (Veg/Non-Veg), or search by name.
-- **Dish Details:** View high-quality images, descriptions, serving sizes, and full ingredient lists.
-- **Saved Recipes:** Save your favourite dishes to a persistent "Saved Recipes" list using LocalStorage.
-- **Responsive Design:** Premium, glassmorphism-inspired UI that works perfectly on desktop and mobile.
+## Technology Stack
+- **Framework**: React 19 + Vite 6
+- **Routing**: React Router DOM v7
+- **State Management**: Context API (AuthContext, SavedRecipesContext)
+- **Styling**: Pure CSS (No UI frameworks used)
 
-## Tech Stack
+## Setup Instructions
 
-- **React 19**
-- **React Router DOM 7**
-- **Vite 6**
-- **Plain CSS** (No external UI frameworks)
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- npm
-
-### Installation & Running Locally
-
-1. Clone or extract the project.
-2. Navigate into the project directory:
-   ```bash
-   cd party-menu-app
-   ```
-3. Install dependencies:
+1. **Install Dependencies**
+   Run the following command to install the required Node modules:
    ```bash
    npm install
    ```
-4. Start the development server:
+
+2. **Start the Development Server**
    ```bash
    npm run dev
    ```
-5. Open your browser to the URL provided by Vite (usually `http://localhost:5173`).
 
-### Test Credentials
-To access the application, use the following credentials on the Sign In page:
-- **Email:** `admin@example.com`
-- **Password:** `admin123`
-
-## Project Architecture
-
-- **`src/context/`**: Contains React Context providers for global state (`AuthContext` and `SavedRecipesContext`).
-- **`src/data/`**: Contains the local JSON data (`menuData.js`) and filtering/lookup logic.
-- **`src/components/`**: Reusable UI components like cards and filter bars, plus route protection (`ProtectedRoute`).
-- **`src/pages/`**: Main route views (`SignIn`, `Menu`, `FoodDetail`, `SavedRecipes`, `NotFound`).
-- **`src/index.css`**: Global design system incorporating CSS variables for a cohesive theme.
+3. **Login Credentials**
+   - **Email:** `admin@example.com`
+   - **Password:** `admin123`
 
 ## Deployment
-
-This app is ready for deployment on **Vercel** or **Netlify**.
-1. Push the code to a GitHub repository.
-2. Import the repository into your chosen hosting platform.
-3. The build settings should auto-detect:
-   - **Framework:** Vite
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-
-*No environment variables (.env) are strictly required to run this app, as the authentication API is public and the menu data is static.*
+This project is configured for seamless deployment on platforms like Vercel and Netlify. 
+- A `vercel.json` and a `public/_redirects` file are included to handle client-side routing fallback so that refreshing on internal pages (like `/saved-recipes`) works perfectly in production without throwing 404 errors.
